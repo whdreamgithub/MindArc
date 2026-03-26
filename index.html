@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindArc Limited - Cloud Data Solutions & Technology Consulting</title>
+    <meta name="description" content="MindArc Limited provides expert cloud services data consulting, data analysis, and computer hardware import/export services in Hong Kong and Asia-Pacific.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+                        <i data-lucide="cpu" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-primary-900 tracking-tight">MindArc</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#solutions" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Solutions</a>
+                    <a href="#services" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Services</a>
+                    <a href="#case-studies" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Case Studies</a>
+                    <a href="#about" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">About</a>
+                    <a href="#contact" class="px-6 py-2.5 bg-primary-600 text-white font-medium rounded-full hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/30">Contact Us</a>
+                </div>
+                
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" id="mobile-menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6 text-gray-600"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white border-t border-gray-100" id="mobile-menu">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#solutions" class="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md font-medium">Solutions</a>
+                <a href="#services" class="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md font-medium">Services</a>
+                <a href="#case-studies" class="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md font-medium">Case Studies</a>
+                <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md font-medium">About</a>
+                <a href="#contact" class="block px-3 py-2 text-primary-600 font-medium">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-600">
+        <div class="absolute inset-0 bg-[url('http://static.photos/technology/1200x630/42')] bg-cover bg-center opacity-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary-900/50 to-transparent"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 text-blue-100 text-sm font-medium mb-8 backdrop-blur-sm">
+                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
+                    Leading Cloud Solutions in Asia-Pacific
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
+                    Transforming Data into<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">Strategic Assets</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+                    MindArc Limited delivers enterprise-grade cloud consulting, advanced data analytics, and seamless hardware infrastructure solutions for businesses across Hong Kong and beyond.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#solutions" class="px-8 py-4 bg-white text-primary-700 font-semibold rounded-full hover:bg-blue-50 transition-all shadow-xl shadow-primary-900/20 flex items-center gap-2">
+                        Explore Solutions
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
+                        Schedule Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">150+</div>
+                    <div class="text-gray-600 font-medium">Enterprise Clients</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">98%</div>
+                    <div class="text-gray-600 font-medium">Client Retention</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">24/7</div>
+                    <div class="text-gray-600 font-medium">Technical Support</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">10+</div>
+                    <div class="text-gray-600 font-medium">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">Our Expertise</span>
+                <h2 class="mt-2 text-3xl md:text-5xl font-bold text-gray-900 mb-4">Comprehensive Solutions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">End-to-end technology solutions designed to optimize your data infrastructure and drive business growth.</p>
+            </div>
+
+            <div class="space-y-20">
+                <!-- Solution 1: Cloud Data Consulting - Image Left, Content Right -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-600 to-blue-400 rounded-2xl transform -rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
+                        <img src="http://static.photos/blue/640x360/201" alt="Cloud Data Consulting" class="relative rounded-2xl shadow-2xl w-full h-80 object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <i data-lucide="cloud" class="w-7 h-7 text-primary-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Cloud Data Consulting</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed text-lg">Strategic cloud architecture design and migration services. We help enterprises transition to scalable cloud environments with minimal disruption, ensuring business continuity throughout the transformation process.</p>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> AWS/Azure/GCP Migration Strategy</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Cloud Security Architecture Design</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Cost Optimization & Resource Management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Solution 2: Enterprise Data Analytics - Content Left, Image Right -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <i data-lucide="bar-chart-3" class="w-7 h-7 text-primary-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Enterprise Data Analytics</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed text-lg">Transform raw data into actionable insights. Our analytics solutions help you make data-driven decisions with real-time processing capabilities and advanced visualization tools.</p>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Business Intelligence Dashboards</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Predictive Analytics & Machine Learning</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Big Data Processing & Warehousing</li>
+                        </ul>
+                    </div>
+                    <div class="relative group order-1 lg:order-2">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-primary-400 rounded-2xl transform rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
+                        <img src="http://static.photos/finance/640x360/202" alt="Enterprise Data Analytics" class="relative rounded-2xl shadow-2xl w-full h-80 object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                </div>
+
+                <!-- Solution 3: Hardware Infrastructure - Image Left, Content Right -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-600 to-teal-400 rounded-2xl transform -rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
+                        <img src="http://static.photos/industry/640x360/203" alt="Hardware Infrastructure" class="relative rounded-2xl shadow-2xl w-full h-80 object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <i data-lucide="server" class="w-7 h-7 text-primary-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Hardware Infrastructure</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed text-lg">Complete hardware procurement and deployment services. From data center equipment to edge computing devices, we source and deliver globally with full logistical support and compliance management.</p>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Enterprise Server & Storage Solutions</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Advanced Networking Equipment</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Global Import/Export Logistics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">What We Offer</span>
+                <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900 mb-6">Professional Services Tailored to Your Needs</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    From data processing to international trade, MindArc provides comprehensive technical services that empower your business to operate efficiently in the digital economy.
+                </p>
+            </div>
+
+            <!-- Service 1: Computer Data Processing - Image Left, Content Right -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary-600 to-blue-400 rounded-2xl transform -rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
+                    <img src="http://static.photos/technology/640x360/301" alt="Computer Data Processing" class="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                        <span class="text-primary-600 font-semibold text-sm">Data Services</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
+                            <i data-lucide="database" class="w-7 h-7 text-primary-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Computer Data Processing</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                        Transform your raw data into actionable business intelligence with our comprehensive data processing solutions. We handle everything from data collection and cleansing to advanced analytics and reporting.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Data Cleansing & Validation</h4>
+                                <p class="text-gray-600 text-sm">Remove duplicates, correct inconsistencies, and ensure data accuracy across all your systems with automated validation workflows.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">ETL Pipeline Development</h4>
+                                <p class="text-gray-600 text-sm">Custom Extract, Transform, Load pipelines that seamlessly move data between sources with real-time synchronization capabilities.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Big Data Processing</h4>
+                                <p class="text-gray-600 text-sm">Handle massive datasets with distributed computing frameworks, enabling fast processing of terabytes of information.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors group">
+                        Learn More 
+                        <i data-lucide="arrow-right" class="w-5 h-5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 2: Technical Consulting - Content Left, Image Right -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="order-2 lg:order-1">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
+                            <i data-lucide="headphones" class="w-7 h-7 text-primary-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Technical Consulting</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                        Navigate complex technology decisions with confidence. Our expert consultants provide strategic guidance tailored to your business objectives, helping you maximize ROI on technology investments.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">IT Strategy & Roadmapping</h4>
+                                <p class="text-gray-600 text-sm">Develop comprehensive technology roadmaps aligned with business goals, including digital transformation strategies and legacy system modernization.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Cloud Architecture Design</h4>
+                                <p class="text-gray-600 text-sm">Design scalable, secure, and cost-effective cloud infrastructures with best practices for multi-cloud and hybrid environments.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Security & Compliance Audit</h4>
+                                <p class="text-gray-600 text-sm">Comprehensive security assessments and compliance consulting for GDPR, ISO 27001, and industry-specific regulations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors group">
+                        Learn More 
+                        <i data-lucide="arrow-right" class="w-5 h-5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                <div class="relative group order-1 lg:order-2">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-primary-400 rounded-2xl transform rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
+                    <img src="http://static.photos/office/640x360/302" alt="Technical Consulting" class="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
+                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                        <span class="text-primary-600 font-semibold text-sm">Consulting</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: Import & Export Trade - Image Left, Content Right -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-600 to-teal-400 rounded-2xl transform -rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
+                    <img src="http://static.photos/industry/640x360/303" alt="Import & Export Trade" class="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                        <span class="text-primary-600 font-semibold text-sm">Global Trade</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
+                            <i data-lucide="globe" class="w-7 h-7 text-primary-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Import & Export Trade</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                        Seamless international trade services for technology hardware and equipment. We navigate complex logistics, customs regulations, and compliance requirements to deliver your technology assets anywhere in the world.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Global Logistics Management</h4>
+                                <p class="text-gray-600 text-sm">End-to-end shipping coordination with real-time tracking, insurance coverage, and optimized routing for cost-effective delivery.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Customs & Compliance</h4>
+                                <p class="text-gray-600 text-sm">Expert handling of customs documentation, duty calculations, and regulatory compliance for technology imports and exports across 50+ countries.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Hardware Procurement</h4>
+                                <p class="text-gray-600 text-sm">Strategic sourcing of enterprise servers, networking equipment, and data center infrastructure from leading manufacturers worldwide.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors group">
+                        Learn More 
+                        <i data-lucide="arrow-right" class="w-5 h-5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="py-24 bg-primary-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-blue-300 font-semibold tracking-wide uppercase text-sm">Success Stories</span>
+                <h2 class="mt-2 text-3xl md:text-5xl font-bold mb-4">Case Studies</h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">Discover how we've helped organizations transform their data infrastructure and achieve measurable results.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all duration-300 group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/finance/640x360/101" alt="Financial Services" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-blue-300 text-sm font-semibold mb-2">Financial Services</div>
+                        <h3 class="text-xl font-bold mb-3">Major Bank Cloud Migration</h3>
+                        <p class="text-blue-100 mb-4 text-sm leading-relaxed">Migrated 50+ TB of sensitive financial data to hybrid cloud infrastructure, reducing operational costs by 40% and improving security compliance.</p>
+                        <div class="flex items-center gap-4 text-sm border-t border-white/10 pt-4">
+                            <span class="flex items-center gap-1"><i data-lucide="trending-up" class="w-4 h-4 text-green-400"></i> 40% Cost Reduction</span>
+                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4 text-blue-400"></i> 3 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all duration-300 group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/retail/640x360/205" alt="Retail Analytics" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-blue-300 text-sm font-semibold mb-2">Retail Chain</div>
+                        <h3 class="text-xl font-bold mb-3">Real-Time Analytics Platform</h3>
+                        <p class="text-blue-100 mb-4 text-sm leading-relaxed">Implemented a comprehensive data analytics solution across 120+ retail locations, enabling real-time inventory management and customer insights.</p>
+                        <div class="flex items-center gap-4 text-sm border-t border-white/10 pt-4">
+                            <span class="flex items-center gap-1"><i data-lucide="trending-up" class="w-4 h-4 text-green-400"></i> 25% Efficiency Gain</span>
+                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4 text-blue-400"></i> 6 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all duration-300 group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/technology/640x360/333" alt="Tech Startup" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-blue-300 text-sm font-semibold mb-2">Tech Startup</div>
+                        <h3 class="text-xl font-bold mb-3">Hardware Infrastructure Setup</h3>
+                        <p class="text-blue-100 mb-4 text-sm leading-relaxed">Sourced and deployed complete data center infrastructure for a rapidly scaling fintech startup, including servers, storage, and networking equipment.</p>
+                        <div class="flex items-center gap-4 text-sm border-t border-white/10 pt-4">
+                            <span class="flex items-center gap-1"><i data-lucide="trending-up" class="w-4 h-4 text-green-400"></i> 99.9% Uptime</span>
+                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4 text-blue-400"></i> 2 Months</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="http://static.photos/office/320x240/456" alt="Office Environment" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                        <img src="http://static.photos/technology/320x240/789" alt="Technology Workspace" class="rounded-2xl shadow-lg w-full h-64 object-cover mt-8">
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">About Us</span>
+                    <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900 mb-6">Driving Digital Transformation from Hong Kong</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Founded in Hong Kong, MindArc Limited has established itself as a trusted partner for enterprises seeking to leverage cloud technology and data analytics. We combine local expertise with global reach, serving clients across the Asia-Pacific region.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Our dual focus on cloud consulting services and hardware import/export enables us to provide truly comprehensive solutions—from strategic advisory to physical infrastructure deployment.
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                            <i data-lucide="target" class="w-8 h-8 text-primary-600 mx-auto mb-2"></i>
+                            <h4 class="font-semibold text-gray-900">Mission</h4>
+                            <p class="text-sm text-gray-600 mt-1">Empower businesses through intelligent data solutions</p>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                            <i data-lucide="eye" class="w-8 h-8 text-primary-600 mx-auto mb-2"></i>
+                            <h4 class="font-semibold text-gray-900">Vision</h4>
+                            <p class="text-sm text-gray-600 mt-1">Leading technology partner in Asia-Pacific</p>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                            <i data-lucide="heart" class="w-8 h-8 text-primary-600 mx-auto mb-2"></i>
+                            <h4 class="font-semibold text-gray-900">Values</h4>
+                            <p class="text-sm text-gray-600 mt-1">Integrity, Innovation, Excellence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary-600 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('http://static.photos/abstract/1200x630/999')] bg-cover bg-center opacity-10"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Data Infrastructure?</h2>
+            <p class="text-xl text-blue-100 mb-8">Let's discuss how MindArc can help optimize your cloud services and technology operations.</p>
+            <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-700 font-bold rounded-full hover:bg-blue-50 transition-all shadow-xl">
+                Get Started Today
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact/Footer Section -->
+    <footer id="contact" class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="cpu" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <span class="text-2xl font-bold tracking-tight">MindArc Limited</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
+                        Your trusted partner for cloud data consulting, enterprise analytics, and technology hardware solutions in Hong Kong and the Asia-Pacific region.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#solutions" class="hover:text-white transition-colors">Solutions</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#case-studies" class="hover:text-white transition-colors">Case Studies</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact Information</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                            <span>UNIT E01, 10/F, WONG KING IND BUILDING,<br>2-4 TAI YAU STREET,<br>SAN PO KONG, HONG KONG</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary-500"></i>
+                            <a href="mailto:mindarc.limited@gmail.com" class="hover:text-white transition-colors">mindarc.limited@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="clock" class="w-5 h-5 text-primary-500"></i>
+                            <span>Mon - Fri: 9:00 AM - 6:00 PM HKT</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2024 MindArc Limited. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Business License</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+<script src="https://deepsite.hf.co/deepsite-badge.js"></script>
+</body>
+</html>
