@@ -3,573 +3,1016 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindArc Limited - Cloud Data Solutions & Technology Consulting</title>
-    <meta name="description" content="MindArc Limited provides expert cloud services data consulting, data analysis, and computer hardware import/export services in Hong Kong and Asia-Pacific.">
-    
+    <title>MindArc Limited - Data Solutions & Global Trade</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="style.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            200: '#bfdbfe',
-                            300: '#93c5fd',
-                            400: '#60a5fa',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#1e3a8a',
-                        }
+                        primary: '#2563eb',
+                        primaryDark: '#1d4ed8',
+                        primaryLight: '#3b82f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(29, 78, 216, 0.05) 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        }
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+        .service-image {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .image-overlay {
+            background: linear-gradient(to bottom, transparent 0%, rgba(37, 99, 235, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .service-card:hover .image-overlay {
+            opacity: 1;
+        }
+        .case-tag {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        }
+    </style>
 </head>
-<body class="font-sans text-gray-800 bg-white">
+<body class="font-sans text-gray-800 antialiased">
+
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50 transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 glass-effect border-b border-gray-200 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                        <i data-lucide="cpu" class="w-6 h-6 text-white"></i>
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
                     </div>
-                    <span class="text-2xl font-bold text-primary-900 tracking-tight">MindArc</span>
+                    <span class="text-2xl font-bold text-gray-900 tracking-tight">MindArc</span>
                 </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#solutions" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Solutions</a>
-                    <a href="#services" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Services</a>
-                    <a href="#case-studies" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Case Studies</a>
-                    <a href="#about" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">About</a>
-                    <a href="#contact" class="px-6 py-2.5 bg-primary-600 text-white font-medium rounded-full hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/30">Contact Us</a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#solutions" class="nav-link text-gray-700 hover:text-primary font-medium transition">Solutions</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-primary font-medium transition">Services</a>
+                    <a href="#cases" class="nav-link text-gray-700 hover:text-primary font-medium transition">Case Studies</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-primary font-medium transition">About</a>
+                    <a href="#contact" class="bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-primaryDark transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Contact Us
+                    </a>
                 </div>
-                
-                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" id="mobile-menu-btn">
-                    <i data-lucide="menu" class="w-6 h-6 text-gray-600"></i>
-                </button>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
-        
+
         <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-white border-t border-gray-100" id="mobile-menu">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="#solutions" class="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md font-medium">Solutions</a>
-                <a href="#services" class="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md font-medium">Services</a>
-                <a href="#case-studies" class="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md font-medium">Case Studies</a>
-                <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md font-medium">About</a>
-                <a href="#contact" class="block px-3 py-2 text-primary-600 font-medium">Contact Us</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#solutions" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-blue-50 rounded-md">Solutions</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-blue-50 rounded-md">Services</a>
+                <a href="#cases" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-blue-50 rounded-md">Case Studies</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-blue-50 rounded-md">About</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-primary font-semibold">Contact Us</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-600">
-        <div class="absolute inset-0 bg-[url('http://static.photos/technology/1200x630/42')] bg-cover bg-center opacity-10"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-primary-900/50 to-transparent"></div>
-        
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-4xl mx-auto">
-                <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 text-blue-100 text-sm font-medium mb-8 backdrop-blur-sm">
-                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
-                    Leading Cloud Solutions in Asia-Pacific
-                </div>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
-                    Transforming Data into<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">Strategic Assets</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-                    MindArc Limited delivers enterprise-grade cloud consulting, advanced data analytics, and seamless hardware infrastructure solutions for businesses across Hong Kong and beyond.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#solutions" class="px-8 py-4 bg-white text-primary-700 font-semibold rounded-full hover:bg-blue-50 transition-all shadow-xl shadow-primary-900/20 flex items-center gap-2">
-                        Explore Solutions
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                    <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
-                        Schedule Consultation
-                    </a>
-                </div>
-            </div>
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 hero-gradient overflow-hidden">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute inset-0 bg-[url('https://kimi-web-img.moonshot.cn/img/www.connectria.com/b4e1b354b94da521d4fda01273c21d8df177ff45.jpeg')] bg-cover bg-center"></div>
         </div>
-        
-        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-12 bg-white border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">150+</div>
-                    <div class="text-gray-600 font-medium">Enterprise Clients</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">98%</div>
-                    <div class="text-gray-600 font-medium">Client Retention</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">24/7</div>
-                    <div class="text-gray-600 font-medium">Technical Support</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">10+</div>
-                    <div class="text-gray-600 font-medium">Years Experience</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solutions Section -->
-    <section id="solutions" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">Our Expertise</span>
-                <h2 class="mt-2 text-3xl md:text-5xl font-bold text-gray-900 mb-4">Comprehensive Solutions</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">End-to-end technology solutions designed to optimize your data infrastructure and drive business growth.</p>
-            </div>
-
-            <div class="space-y-20">
-                <!-- Solution 1: Cloud Data Consulting - Image Left, Content Right -->
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="relative group">
-                        <div class="absolute inset-0 bg-gradient-to-br from-primary-600 to-blue-400 rounded-2xl transform -rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
-                        <img src="http://static.photos/blue/640x360/201" alt="Cloud Data Consulting" class="relative rounded-2xl shadow-2xl w-full h-80 object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
-                                <i data-lucide="cloud" class="w-7 h-7 text-primary-600"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900">Cloud Data Consulting</h3>
-                        </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed text-lg">Strategic cloud architecture design and migration services. We help enterprises transition to scalable cloud environments with minimal disruption, ensuring business continuity throughout the transformation process.</p>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> AWS/Azure/GCP Migration Strategy</li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Cloud Security Architecture Design</li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Cost Optimization & Resource Management</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Solution 2: Enterprise Data Analytics - Content Left, Image Right -->
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="order-2 lg:order-1">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
-                                <i data-lucide="bar-chart-3" class="w-7 h-7 text-primary-600"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900">Enterprise Data Analytics</h3>
-                        </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed text-lg">Transform raw data into actionable insights. Our analytics solutions help you make data-driven decisions with real-time processing capabilities and advanced visualization tools.</p>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Business Intelligence Dashboards</li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Predictive Analytics & Machine Learning</li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Big Data Processing & Warehousing</li>
-                        </ul>
-                    </div>
-                    <div class="relative group order-1 lg:order-2">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-primary-400 rounded-2xl transform rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
-                        <img src="http://static.photos/finance/640x360/202" alt="Enterprise Data Analytics" class="relative rounded-2xl shadow-2xl w-full h-80 object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
-                    </div>
-                </div>
-
-                <!-- Solution 3: Hardware Infrastructure - Image Left, Content Right -->
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="relative group">
-                        <div class="absolute inset-0 bg-gradient-to-br from-green-600 to-teal-400 rounded-2xl transform -rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
-                        <img src="http://static.photos/industry/640x360/203" alt="Hardware Infrastructure" class="relative rounded-2xl shadow-2xl w-full h-80 object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
-                                <i data-lucide="server" class="w-7 h-7 text-primary-600"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900">Hardware Infrastructure</h3>
-                        </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed text-lg">Complete hardware procurement and deployment services. From data center equipment to edge computing devices, we source and deliver globally with full logistical support and compliance management.</p>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Enterprise Server & Storage Solutions</li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Advanced Networking Equipment</li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i> Global Import/Export Logistics</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">What We Offer</span>
-                <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900 mb-6">Professional Services Tailored to Your Needs</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    From data processing to international trade, MindArc provides comprehensive technical services that empower your business to operate efficiently in the digital economy.
-                </p>
-            </div>
-
-            <!-- Service 1: Computer Data Processing - Image Left, Content Right -->
-            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
-                <div class="relative group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary-600 to-blue-400 rounded-2xl transform -rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
-                    <img src="http://static.photos/technology/640x360/301" alt="Computer Data Processing" class="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
-                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                        <span class="text-primary-600 font-semibold text-sm">Data Services</span>
-                    </div>
-                </div>
-                <div>
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
-                            <i data-lucide="database" class="w-7 h-7 text-primary-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900">Computer Data Processing</h3>
-                    </div>
-                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
-                        Transform your raw data into actionable business intelligence with our comprehensive data processing solutions. We handle everything from data collection and cleansing to advanced analytics and reporting.
-                    </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-1">Data Cleansing & Validation</h4>
-                                <p class="text-gray-600 text-sm">Remove duplicates, correct inconsistencies, and ensure data accuracy across all your systems with automated validation workflows.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-1">ETL Pipeline Development</h4>
-                                <p class="text-gray-600 text-sm">Custom Extract, Transform, Load pipelines that seamlessly move data between sources with real-time synchronization capabilities.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-1">Big Data Processing</h4>
-                                <p class="text-gray-600 text-sm">Handle massive datasets with distributed computing frameworks, enabling fast processing of terabytes of information.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors group">
-                        Learn More 
-                        <i data-lucide="arrow-right" class="w-5 h-5 transform group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Service 2: Technical Consulting - Content Left, Image Right -->
-            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
-                <div class="order-2 lg:order-1">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
-                            <i data-lucide="headphones" class="w-7 h-7 text-primary-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900">Technical Consulting</h3>
-                    </div>
-                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
-                        Navigate complex technology decisions with confidence. Our expert consultants provide strategic guidance tailored to your business objectives, helping you maximize ROI on technology investments.
-                    </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-1">IT Strategy & Roadmapping</h4>
-                                <p class="text-gray-600 text-sm">Develop comprehensive technology roadmaps aligned with business goals, including digital transformation strategies and legacy system modernization.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-1">Cloud Architecture Design</h4>
-                                <p class="text-gray-600 text-sm">Design scalable, secure, and cost-effective cloud infrastructures with best practices for multi-cloud and hybrid environments.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-1">Security & Compliance Audit</h4>
-                                <p class="text-gray-600 text-sm">Comprehensive security assessments and compliance consulting for GDPR, ISO 27001, and industry-specific regulations.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors group">
-                        Learn More 
-                        <i data-lucide="arrow-right" class="w-5 h-5 transform group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-                <div class="relative group order-1 lg:order-2">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-primary-400 rounded-2xl transform rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
-                    <img src="http://static.photos/office/640x360/302" alt="Technical Consulting" class="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
-                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                        <span class="text-primary-600 font-semibold text-sm">Consulting</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 3: Import & Export Trade - Image Left, Content Right -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="relative group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-green-600 to-teal-400 rounded-2xl transform -rotate-2 opacity-20 blur-xl group-hover:rotate-0 transition-transform duration-500"></div>
-                    <img src="http://static.photos/industry/640x360/303" alt="Import & Export Trade" class="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
-                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                        <span class="text-primary-600 font-semibold text-sm">Global Trade</span>
+                <div class="space-y-8 animate-fade-in">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-primary text-sm font-semibold">
+                        <span class="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
+                        Global Data Solutions Provider
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                        Transforming Data into <span class="gradient-text">Global Opportunities</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 leading-relaxed max-w-lg">
+                        MindArc Limited bridges technology and international trade, delivering cutting-edge cloud solutions and seamless hardware logistics across borders.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#solutions" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-medium rounded-full text-white bg-primary hover:bg-primaryDark transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            Explore Solutions
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 border-2 border-primary text-base font-medium rounded-full text-primary hover:bg-primary hover:text-white transition">
+                            Get in Touch
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-6 pt-4 text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            ISO 27001 Certified
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            24/7 Global Support
+                        </div>
+
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            99.9% Uptime Guaranteed
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
-                            <i data-lucide="globe" class="w-7 h-7 text-primary-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900">Import & Export Trade</h3>
-                    </div>
-                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
-                        Seamless international trade services for technology hardware and equipment. We navigate complex logistics, customs regulations, and compliance requirements to deliver your technology assets anywhere in the world.
-                    </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-1">Global Logistics Management</h4>
-                                <p class="text-gray-600 text-sm">End-to-end shipping coordination with real-time tracking, insurance coverage, and optimized routing for cost-effective delivery.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-1">Customs & Compliance</h4>
-                                <p class="text-gray-600 text-sm">Expert handling of customs documentation, duty calculations, and regulatory compliance for technology imports and exports across 50+ countries.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4 text-primary-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900 mb-1">Hardware Procurement</h4>
-                                <p class="text-gray-600 text-sm">Strategic sourcing of enterprise servers, networking equipment, and data center infrastructure from leading manufacturers worldwide.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors group">
-                        Learn More 
-                        <i data-lucide="arrow-right" class="w-5 h-5 transform group-hover:translate-x-1 transition-transform"></i>
-                    </a>
+                <div class="relative lg:h-[600px] flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl transform rotate-3"></div>
+                    <img src="https://kimi-web-img.moonshot.cn/img/eu-images.contentstack.com/ce28882d01a4700c108a98e0f9eae1136ba0b48c.jpg" 
+                         alt="Data Center Infrastructure" 
+                         class="relative rounded-2xl shadow-2xl animate-float object-cover w-full h-full max-h-[500px]">
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section -->
-    <section id="case-studies" class="py-24 bg-primary-900 text-white">
+    <!-- Solutions Section with Images -->
+    <section id="solutions" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-blue-300 font-semibold tracking-wide uppercase text-sm">Success Stories</span>
-                <h2 class="mt-2 text-3xl md:text-5xl font-bold mb-4">Case Studies</h2>
-                <p class="text-xl text-blue-100 max-w-3xl mx-auto">Discover how we've helped organizations transform their data infrastructure and achieve measurable results.</p>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-primary font-semibold text-lg mb-2">Our Solutions</h2>
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">Comprehensive Data & Trade Solutions</h3>
+                <p class="text-gray-600 text-lg">From cloud infrastructure to international logistics, we provide end-to-end solutions that drive business growth.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all duration-300 group">
-                    <div class="h-48 overflow-hidden">
-                        <img src="http://static.photos/finance/640x360/101" alt="Financial Services" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="text-blue-300 text-sm font-semibold mb-2">Financial Services</div>
-                        <h3 class="text-xl font-bold mb-3">Major Bank Cloud Migration</h3>
-                        <p class="text-blue-100 mb-4 text-sm leading-relaxed">Migrated 50+ TB of sensitive financial data to hybrid cloud infrastructure, reducing operational costs by 40% and improving security compliance.</p>
-                        <div class="flex items-center gap-4 text-sm border-t border-white/10 pt-4">
-                            <span class="flex items-center gap-1"><i data-lucide="trending-up" class="w-4 h-4 text-green-400"></i> 40% Cost Reduction</span>
-                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4 text-blue-400"></i> 3 Months</span>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Solution Card 1: Cloud Data Consulting -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/static.wixstatic.com/d4d3852f8434cfdac6d6d696f025ef0840db4097.jpg" 
+                             alt="Cloud Computing Architecture" 
+                             class="service-image w-full h-full object-cover">
+                        <div class="image-overlay absolute inset-0 flex items-end justify-center pb-4">
+                            <span class="text-white font-semibold text-lg">Cloud Infrastructure</span>
                         </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
+                            <svg class="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Cloud Data Consulting</h4>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Strategic cloud architecture design, migration services, and optimization for AWS, Azure, and private cloud environments.</p>
+                        <ul class="space-y-2 text-sm text-gray-500 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-primary mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Cloud Strategy & Architecture
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-primary mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Data Security & Compliance
+                            </li>
+                        </ul>
+                        <a href="#contact" class="inline-flex items-center text-primary font-semibold text-sm hover:text-primaryDark transition">
+                            Learn More 
+                            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all duration-300 group">
-                    <div class="h-48 overflow-hidden">
-                        <img src="http://static.photos/retail/640x360/205" alt="Retail Analytics" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="text-blue-300 text-sm font-semibold mb-2">Retail Chain</div>
-                        <h3 class="text-xl font-bold mb-3">Real-Time Analytics Platform</h3>
-                        <p class="text-blue-100 mb-4 text-sm leading-relaxed">Implemented a comprehensive data analytics solution across 120+ retail locations, enabling real-time inventory management and customer insights.</p>
-                        <div class="flex items-center gap-4 text-sm border-t border-white/10 pt-4">
-                            <span class="flex items-center gap-1"><i data-lucide="trending-up" class="w-4 h-4 text-green-400"></i> 25% Efficiency Gain</span>
-                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4 text-blue-400"></i> 6 Months</span>
+                <!-- Solution Card 2: Advanced Data Analytics -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.slideteam.net/6ad572cb9b03c1fe3f6f557f95e5bc1d7ebb367c.png" 
+                             alt="Big Data Analytics Dashboard" 
+                             class="service-image w-full h-full object-cover">
+                        <div class="image-overlay absolute inset-0 flex items-end justify-center pb-4">
+                            <span class="text-white font-semibold text-lg">Analytics Platform</span>
                         </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
+                            <svg class="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Advanced Data Analytics</h4>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Transform raw data into actionable insights with our AI-powered analytics platforms and business intelligence solutions.</p>
+                        <ul class="space-y-2 text-sm text-gray-500 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-primary mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Predictive Analytics
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-primary mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Real-time Dashboards
+                            </li>
+                        </ul>
+                        <a href="#contact" class="inline-flex items-center text-primary font-semibold text-sm hover:text-primaryDark transition">
+                            Learn More 
+                            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all duration-300 group">
-                    <div class="h-48 overflow-hidden">
-                        <img src="http://static.photos/technology/640x360/333" alt="Tech Startup" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="text-blue-300 text-sm font-semibold mb-2">Tech Startup</div>
-                        <h3 class="text-xl font-bold mb-3">Hardware Infrastructure Setup</h3>
-                        <p class="text-blue-100 mb-4 text-sm leading-relaxed">Sourced and deployed complete data center infrastructure for a rapidly scaling fintech startup, including servers, storage, and networking equipment.</p>
-                        <div class="flex items-center gap-4 text-sm border-t border-white/10 pt-4">
-                            <span class="flex items-center gap-1"><i data-lucide="trending-up" class="w-4 h-4 text-green-400"></i> 99.9% Uptime</span>
-                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4 text-blue-400"></i> 2 Months</span>
+                <!-- Solution Card 3: Hardware Import/Export -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.basenton.com/a2b2858c6d9c9e11d2a0508780e7033a44259f3e.jpg" 
+                             alt="Server Hardware Import Export" 
+                             class="service-image w-full h-full object-cover">
+                        <div class="image-overlay absolute inset-0 flex items-end justify-center pb-4">
+                            <span class="text-white font-semibold text-lg">Global Hardware Trade</span>
                         </div>
                     </div>
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
+                            <svg class="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Hardware Import/Export</h4>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Specialized in computer data hardware procurement and global distribution with full customs and logistics support.</p>
+                        <ul class="space-y-2 text-sm text-gray-500 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-primary mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Server & Storage Equipment
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-primary mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Global Supply Chain
+                            </li>
+                        </ul>
+                        <a href="#contact" class="inline-flex items-center text-primary font-semibold text-sm hover:text-primaryDark transition">
+                            Learn More 
+                            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section - Redesigned with Cards and Aligned Buttons -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-primary font-semibold text-lg mb-2">Our Services</h2>
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">Professional Services Tailored to Your Needs</h3>
+                <p class="text-gray-600 text-lg">Comprehensive consulting and operational services to accelerate your digital transformation and global expansion.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Service Card 1: Technical Advisory -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group h-full flex flex-col">
+                    <div class="relative h-56 overflow-hidden flex-shrink-0">
+                        <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/fb342e3e8c6c8f58ccae399151bbf067d69fb25e.jpg" 
+                             alt="Technical Advisory Team" 
+                             class="service-image w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="inline-block px-3 py-1 bg-primary text-white text-xs font-semibold rounded-full mb-2">Consulting</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300 flex-shrink-0">
+                            <svg class="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4 flex-shrink-0">Technical Advisory</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed flex-shrink-0">Expert guidance on IT infrastructure, system integration, and technology stack optimization tailored to your specific business requirements and growth objectives.</p>
+                        
+                        <div class="space-y-3 mb-6 flex-grow">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                IT Infrastructure Planning
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Technology Stack Optimization
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Digital Transformation Strategy
+                            </div>
+                        </div>
+
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full py-2.5 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition duration-300 mt-auto flex-shrink-0">
+                            Get Consultation
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 2: Data Processing Services -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group h-full flex flex-col">
+                    <div class="relative h-56 overflow-hidden flex-shrink-0">
+                        <img src="https://kimi-web-img.moonshot.cn/img/editor.analyticsvidhya.com/db75554805d0250862332f9be8a036490e05ad55.png" 
+                             alt="ETL Data Processing Pipeline" 
+                             class="service-image w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="inline-block px-3 py-1 bg-primary text-white text-xs font-semibold rounded-full mb-2">Data Operations</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300 flex-shrink-0">
+                            <svg class="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4 flex-shrink-0">Data Processing Services</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed flex-shrink-0">High-volume data processing, ETL pipeline construction, and database management for enterprise-scale operations and business intelligence.</p>
+                        
+                        <div class="space-y-3 mb-6 flex-grow">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                ETL Pipeline Development
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Data Warehouse Management
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Big Data Processing
+                            </div>
+                        </div>
+
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full py-2.5 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition duration-300 mt-auto flex-shrink-0">
+                            Get Consultation
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 3: Import/Export Facilitation -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group h-full flex flex-col">
+                    <div class="relative h-56 overflow-hidden flex-shrink-0">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.mitatrade.org/5dcc91c41c37962ae95a8ffd191355afb576b922.jpg" 
+                             alt="Global Logistics Import Export" 
+                             class="service-image w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="inline-block px-3 py-1 bg-primary text-white text-xs font-semibold rounded-full mb-2">Global Trade</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300 flex-shrink-0">
+                            <svg class="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4 flex-shrink-0">Import/Export Facilitation</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed flex-shrink-0">Complete trade solutions including customs documentation, international shipping coordination, and compliance management for tech hardware.</p>
+                        
+                        <div class="space-y-3 mb-6 flex-grow">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Customs Documentation
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                International Shipping Coordination
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Trade Compliance Management
+                            </div>
+                        </div>
+
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full py-2.5 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition duration-300 mt-auto flex-shrink-0">
+                            Get Consultation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section - Redesigned to match Our Solutions style -->
+    <section id="cases" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-primary font-semibold text-lg mb-2">Case Studies</h2>
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">Proven Results Across Industries</h3>
+                <p class="text-gray-600 text-lg">Discover how we've helped organizations optimize their data infrastructure and expand their global reach through our comprehensive solutions.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Case Study Card 1: Fortune 500 Data Center Migration -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/faddom.com/1c4a0a2a3aab438c93cc7424e9acf469e795eb91.webp" 
+                             alt="Data Center Migration" 
+                             class="service-image w-full h-full object-cover">
+                        <div class="image-overlay absolute inset-0 flex items-end justify-center pb-4">
+                            <span class="text-white font-semibold text-lg">Cloud Migration</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                                <svg class="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                </svg>
+                            </div>
+                            <span class="case-tag text-white text-xs font-bold px-3 py-1 rounded-full">Finance</span>
+                        </div>
+                        
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Fortune 500 Data Center Migration</h4>
+                        
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            A complete cloud transformation for a leading financial services company, migrating 500+ physical servers to hybrid cloud infrastructure while maintaining strict compliance with international financial regulations.
+                        </p>
+
+                        <div class="border-t border-gray-100 pt-4 mb-4">
+                            <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Key Results</h5>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="text-center p-2 bg-blue-50 rounded-lg">
+                                    <p class="text-lg font-bold text-primary">500+</p>
+                                    <p class="text-xs text-gray-600">Servers</p>
+                                </div>
+                                <div class="text-center p-2 bg-blue-50 rounded-lg">
+                                    <p class="text-lg font-bold text-primary">40%</p>
+                                    <p class="text-xs text-gray-600">Cost Cut</p>
+                                </div>
+                                <div class="text-center p-2 bg-blue-50 rounded-lg">
+                                    <p class="text-lg font-bold text-primary">99.9%</p>
+                                    <p class="text-xs text-gray-600">Uptime</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Zero downtime migration strategy</span>
+                            </div>
+                            <div class="flex items-start text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Enhanced data security protocols</span>
+                            </div>
+                        </div>
+
+                        <button onclick="showCaseDetail('case1')" class="w-full py-2.5 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition duration-300 text-sm">
+                            View Full Case Study
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Case Study Card 2: Asia-Pacific Hardware Distribution -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.supplychainflow.com/226b5176c241844fead084487dd042815557db4c.jpg" 
+                             alt="Global Supply Chain Logistics" 
+                             class="service-image w-full h-full object-cover">
+                        <div class="image-overlay absolute inset-0 flex items-end justify-center pb-4">
+                            <span class="text-white font-semibold text-lg">Supply Chain</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                                <svg class="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+                                </svg>
+                            </div>
+                            <span class="case-tag text-white text-xs font-bold px-3 py-1 rounded-full">Logistics</span>
+                        </div>
+                        
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Asia-Pacific Hardware Distribution</h4>
+                        
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Established a comprehensive supply chain network spanning 12 countries across Asia-Pacific, integrating customs clearance, warehousing, and last-mile delivery for enterprise server hardware.
+                        </p>
+
+                        <div class="border-t border-gray-100 pt-4 mb-4">
+                            <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Key Results</h5>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="text-center p-2 bg-blue-50 rounded-lg">
+                                    <p class="text-lg font-bold text-primary">12</p>
+                                    <p class="text-xs text-gray-600">Countries</p>
+                                </div>
+                                <div class="text-center p-2 bg-blue-50 rounded-lg">
+                                    <p class="text-lg font-bold text-primary">60%</p>
+                                    <p class="text-xs text-gray-600">Faster</p>
+                                </div>
+                                <div class="text-center p-2 bg-blue-50 rounded-lg">
+                                    <p class="text-lg font-bold text-primary">35%</p>
+                                    <p class="text-xs text-gray-600">Savings</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Integrated customs clearance system</span>
+                            </div>
+                            <div class="flex items-start text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Real-time tracking & inventory mgmt</span>
+                            </div>
+                        </div>
+
+                        <button onclick="showCaseDetail('case2')" class="w-full py-2.5 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition duration-300 text-sm">
+                            View Full Case Study
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Case Study Card 3: Enterprise Analytics Platform -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://kimi-web-img.moonshot.cn/img/vidi-corp.com/253717fb342e4ac0da85ab3a83e62220591c4a99.webp" 
+                             alt="Enterprise Analytics Dashboard" 
+                             class="service-image w-full h-full object-cover">
+                        <div class="image-overlay absolute inset-0 flex items-end justify-center pb-4">
+                            <span class="text-white font-semibold text-lg">Analytics</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                                <svg class="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <span class="case-tag text-white text-xs font-bold px-3 py-1 rounded-full">Retail</span>
+                        </div>
+                        
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Enterprise Analytics Platform</h4>
+                        
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Developed and deployed a custom analytics platform processing over 10TB of data daily for a multinational retail corporation, enabling real-time inventory tracking and predictive sales analytics.
+                        </p>
+
+                        <div class="border-t border-gray-100 pt-4 mb-4">
+                            <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Key Results</h5>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="text-center p-2 bg-blue-50 rounded-lg">
+                                    <p class="text-lg font-bold text-primary">10TB</p>
+                                    <p class="text-xs text-gray-600">Daily Data</p>
+                                </div>
+                                <div class="text-center p-2 bg-blue-50 rounded-lg">
+                                    <p class="text-lg font-bold text-primary">Real</p>
+                                    <p class="text-xs text-gray-600">Time</p>
+                                </div>
+                                <div class="text-center p-2 bg-blue-50 rounded-lg">
+                                    <p class="text-lg font-bold text-primary">25%</p>
+                                    <p class="text-xs text-gray-600">Efficiency</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Predictive sales forecasting</span>
+                            </div>
+                            <div class="flex items-start text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Automated reporting systems</span>
+                            </div>
+                        </div>
+
+                        <button onclick="showCaseDetail('case3')" class="w-full py-2.5 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition duration-300 text-sm">
+                            View Full Case Study
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-200 pt-12">
+                <div class="text-center">
+                    <p class="text-4xl font-bold text-primary mb-2">150+</p>
+                    <p class="text-gray-600">Projects Delivered</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-bold text-primary mb-2">30+</p>
+                    <p class="text-gray-600">Countries Served</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-bold text-primary mb-2">99.9%</p>
+                    <p class="text-gray-600">Client Satisfaction</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-bold text-primary mb-2">24/7</p>
+                    <p class="text-gray-600">Technical Support</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24 bg-gray-50">
+    <section id="about" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="order-2 lg:order-1">
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="http://static.photos/office/320x240/456" alt="Office Environment" class="rounded-2xl shadow-lg w-full h-64 object-cover">
-                        <img src="http://static.photos/technology/320x240/789" alt="Technology Workspace" class="rounded-2xl shadow-lg w-full h-64 object-cover mt-8">
-                    </div>
-                </div>
-                
-                <div class="order-1 lg:order-2">
-                    <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">About Us</span>
-                    <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900 mb-6">Driving Digital Transformation from Hong Kong</h2>
-                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                        Founded in Hong Kong, MindArc Limited has established itself as a trusted partner for enterprises seeking to leverage cloud technology and data analytics. We combine local expertise with global reach, serving clients across the Asia-Pacific region.
+                <div class="space-y-6">
+                    <h2 class="text-primary font-semibold text-lg">About MindArc</h2>
+                    <h3 class="text-4xl font-bold text-gray-900">Bridging Technology and Global Commerce</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Founded in Hong Kong, MindArc Limited operates at the intersection of data technology and international trade. We empower businesses with enterprise-grade cloud solutions while facilitating seamless hardware procurement and distribution across global markets.
                     </p>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        Our dual focus on cloud consulting services and hardware import/export enables us to provide truly comprehensive solutions—from strategic advisory to physical infrastructure deployment.
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Our team combines deep technical expertise with extensive logistics experience, enabling us to deliver comprehensive solutions that address both digital infrastructure needs and physical supply chain requirements.
                     </p>
                     
-                    <div class="grid sm:grid-cols-3 gap-6 mb-8">
-                        <div class="text-center p-4 bg-white rounded-xl shadow-sm">
-                            <i data-lucide="target" class="w-8 h-8 text-primary-600 mx-auto mb-2"></i>
-                            <h4 class="font-semibold text-gray-900">Mission</h4>
-                            <p class="text-sm text-gray-600 mt-1">Empower businesses through intelligent data solutions</p>
+                    <div class="grid grid-cols-2 gap-6 pt-6">
+                        <div class="border-l-4 border-primary pl-4">
+                            <h4 class="font-bold text-gray-900 mb-1">Our Mission</h4>
+                            <p class="text-sm text-gray-600">To simplify global data infrastructure and trade through innovative technology solutions.</p>
                         </div>
-                        <div class="text-center p-4 bg-white rounded-xl shadow-sm">
-                            <i data-lucide="eye" class="w-8 h-8 text-primary-600 mx-auto mb-2"></i>
-                            <h4 class="font-semibold text-gray-900">Vision</h4>
-                            <p class="text-sm text-gray-600 mt-1">Leading technology partner in Asia-Pacific</p>
+                        <div class="border-l-4 border-primary pl-4">
+                            <h4 class="font-bold text-gray-900 mb-1">Our Vision</h4>
+                            <p class="text-sm text-gray-600">Becoming the leading integrator of cloud services and hardware logistics in Asia-Pacific.</p>
                         </div>
-                        <div class="text-center p-4 bg-white rounded-xl shadow-sm">
-                            <i data-lucide="heart" class="w-8 h-8 text-primary-600 mx-auto mb-2"></i>
-                            <h4 class="font-semibold text-gray-900">Values</h4>
-                            <p class="text-sm text-gray-600 mt-1">Integrity, Innovation, Excellence</p>
-                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/fb342e3e8c6c8f58ccae399151bbf067d69fb25e.jpg" 
+                         alt="MindArc Team" 
+                         class="rounded-2xl shadow-2xl w-full object-cover">
+                    <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-xl shadow-xl max-w-xs">
+                        <p class="font-semibold mb-2">Headquartered in Hong Kong</p>
+                        <p class="text-sm opacity-90">Strategic location connecting East and West markets with world-class logistics infrastructure.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-primary-600 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('http://static.photos/abstract/1200x630/999')] bg-cover bg-center opacity-10"></div>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Data Infrastructure?</h2>
-            <p class="text-xl text-blue-100 mb-8">Let's discuss how MindArc can help optimize your cloud services and technology operations.</p>
-            <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-700 font-bold rounded-full hover:bg-blue-50 transition-all shadow-xl">
-                Get Started Today
-                <i data-lucide="arrow-right" class="w-5 h-5"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- Contact/Footer Section -->
-    <footer id="contact" class="bg-gray-900 text-white pt-20 pb-10">
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <div class="lg:col-span-2">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                            <i data-lucide="cpu" class="w-6 h-6 text-white"></i>
-                        </div>
-                        <span class="text-2xl font-bold tracking-tight">MindArc Limited</span>
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-primary font-semibold text-lg mb-2">Contact Us</h2>
+                        <h3 class="text-4xl font-bold text-gray-900 mb-4">Let's Discuss Your Project</h3>
+                        <p class="text-gray-600 text-lg">Ready to transform your data infrastructure or expand your hardware procurement capabilities? Get in touch with our team.</p>
                     </div>
-                    <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
-                        Your trusted partner for cloud data consulting, enterprise analytics, and technology hardware solutions in Hong Kong and the Asia-Pacific region.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
-                            <i data-lucide="twitter" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
-                            <i data-lucide="mail" class="w-5 h-5"></i>
-                        </a>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Address</h4>
+                                <p class="text-gray-600">UNIT E01, 10/F, WONG KING IND BUILDING<br>2-4 TAI YAU STREET, SAN PO KONG<br>HONG KONG</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
+                                <a href="mailto:mindarc.limited@gmail.com" class="text-primary hover:text-primaryDark transition">mindarc.limited@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Business Hours</h4>
+                                <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM HKT<br>Saturday: 9:00 AM - 1:00 PM HKT</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
+
+                <!-- Contact Form -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" placeholder="John">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" placeholder="Doe">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" placeholder="john@company.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" placeholder="Your Company Name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
+                            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition">
+                                <option>Cloud Data Consulting</option>
+                                <option>Hardware Import/Export</option>
+                                <option>Technical Advisory</option>
+                                <option>Data Analytics</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" placeholder="Tell us about your project requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white font-semibold py-4 rounded-lg hover:bg-primaryDark transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mr-2">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">MindArc Limited</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+                        Empowering businesses with cloud data solutions and global hardware logistics. Your trusted partner in digital transformation and international trade.
+                    </p>
+                </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#solutions" class="hover:text-white transition-colors">Solutions</a></li>
-                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
-                        <li><a href="#case-studies" class="hover:text-white transition-colors">Case Studies</a></li>
-                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                    <h4 class="font-semibold mb-4 text-gray-200">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#solutions" class="hover:text-primary transition">Solutions</a></li>
+                        <li><a href="#services" class="hover:text-primary transition">Services</a></li>
+                        <li><a href="#cases" class="hover:text-primary transition">Case Studies</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">About Us</a></li>
                     </ul>
                 </div>
-                
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Contact Information</h4>
-                    <ul class="space-y-4 text-gray-400">
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
-                            <span>UNIT E01, 10/F, WONG KING IND BUILDING,<br>2-4 TAI YAU STREET,<br>SAN PO KONG, HONG KONG</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="mail" class="w-5 h-5 text-primary-500"></i>
-                            <a href="mailto:mindarc.limited@gmail.com" class="hover:text-white transition-colors">mindarc.limited@gmail.com</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="clock" class="w-5 h-5 text-primary-500"></i>
-                            <span>Mon - Fri: 9:00 AM - 6:00 PM HKT</span>
-                        </li>
+                    <h4 class="font-semibold mb-4 text-gray-200">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">&copy; 2024 MindArc Limited. All rights reserved.</p>
-                <div class="flex gap-6 text-sm text-gray-500">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                    <a href="#" class="hover:text-white transition-colors">Business License</a>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">&copy; 2026 MindArc Limited. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Modal for Case Studies -->
+    <div id="caseModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-8 relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <div id="modalContent">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
     <script>
-        lucide.createIcons();
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Case study details
+        const caseStudies = {
+            case1: {
+                title: "Fortune 500 Data Center Migration",
+                content: "A complete cloud transformation project for a leading financial services company. We migrated 500+ physical servers to a hybrid cloud infrastructure, resulting in 40% cost reduction and 99.99% uptime improvement. The project included data security compliance with international financial regulations.",
+                stats: ["500+ Servers Migrated", "40% Cost Reduction", "99.99% Uptime"]
+            },
+            case2: {
+                title: "Asia-Pacific Hardware Distribution Network",
+                content: "Established a comprehensive supply chain network spanning 12 countries across Asia-Pacific. Our solution integrated customs clearance, warehousing, and last-mile delivery for enterprise server hardware, reducing delivery times by 60% and logistics costs by 35%.",
+                stats: ["12 Countries Covered", "60% Faster Delivery", "35% Cost Savings"]
+            },
+            case3: {
+                title: "Real-time Enterprise Analytics Platform",
+                content: "Developed and deployed a custom analytics platform processing over 10TB of data daily for a multinational retail corporation. The solution provided real-time inventory tracking, predictive sales analytics, and automated reporting, driving 25% improvement in inventory management efficiency.",
+                stats: ["10TB Daily Processing", "Real-time Analytics", "25% Efficiency Gain"]
+            }
+        };
+
+        function showCaseDetail(caseId) {
+            const modal = document.getElementById('caseModal');
+            const content = document.getElementById('modalContent');
+            const data = caseStudies[caseId];
+            
+            content.innerHTML = `
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">${data.title}</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">${data.content}</p>
+                <div class="flex flex-wrap gap-3">
+                    ${data.stats.map(stat => `<span class="px-4 py-2 bg-blue-100 text-primary rounded-full text-sm font-semibold">${stat}</span>`).join('')}
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('caseModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close modal on outside click
+        document.getElementById('caseModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeModal();
+        });
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.textContent = 'Message Sent Successfully!';
+                btn.classList.remove('bg-primary');
+                btn.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    e.target.reset();
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    btn.classList.remove('bg-green-600');
+                    btn.classList.add('bg-primary');
+                }, 2000);
+            }, 1500);
+        }
     </script>
-<script src="https://deepsite.hf.co/deepsite-badge.js"></script>
 </body>
 </html>
