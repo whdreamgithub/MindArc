@@ -1,8 +1,8 @@
 # MindArc
-MindArc Limited 公司官网
+MindArc Limited 官网  https://mind-arc-bice.vercel.app/
 
 
-# AI提示词
+# AI提示词,使用的AI：https://www.kimi.com/
 请根据以下需求，生成完整的网页。
 要求：完全实现描述的功能，提供清晰易用的界面；界面整洁美观，排版规范，色彩和谐。
 
