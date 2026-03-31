@@ -1,5 +1,8 @@
 # MindArc
-MindArc Limited 官网  https://mind-arc-bice.vercel.app/
+MindArc Limited 官网    
+https://mind-arc-bice.vercel.app/  
+https://www.mindarcgroups.com/  
+https://mindarcgroups.com/
 
 
 # AI提示词,使用的AI：https://www.kimi.com/
